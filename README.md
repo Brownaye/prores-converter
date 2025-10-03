@@ -144,3 +144,4 @@ MIT License - Feel free to use and modify as needed!
 ## Credits
 
 Built with Electron and FFmpeg
+# prores-converter
