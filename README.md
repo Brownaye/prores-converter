@@ -42,7 +42,7 @@ A simple, elegant desktop application for converting MP4 videos to ProRes format
 
 3. **Run the installation script**:
    ```bash
-   cd "prores-converter"
+   cd prores-converter
    chmod +x install.sh
    ./install.sh
    ```
@@ -61,7 +61,7 @@ A simple, elegant desktop application for converting MP4 videos to ProRes format
 
 **Option 2: Command Line**
 ```bash
-cd "prores-converter"
+cd prores-converter
 npm start
 ```
 
