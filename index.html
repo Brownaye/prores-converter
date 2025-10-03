@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProRes Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 ProRes Converter</h1>
+            <p class="subtitle">Drop your MP4 files and convert to ProRes</p>
+        </header>
+
+        <div id="dropZone" class="drop-zone">
+            <div class="drop-zone-content">
+                <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="drop-text">Drop MP4 files here or click to browse</p>
+                <p class="drop-hint">Supports multiple files</p>
+            </div>
+            <input type="file" id="fileInput" accept=".mp4" multiple style="display: none;">
+        </div>
+
+        <div id="fileInfo" class="file-info" style="display: none;">
+            <h3>Selected Files:</h3>
+            <div id="fileList" class="file-list"></div>
+        </div>
+
+        <div id="formatSelection" class="format-selection" style="display: none;">
+            <h3>Select ProRes Format:</h3>
+            <div class="format-options">
+                <label class="format-option">
+                    <input type="radio" name="format" value="proxy" checked>
+                    <div class="format-card">
+                        <h4>ProRes Proxy</h4>
+                        <span class="size-label small">Small</span>
+                        <p>Best for offline editing</p>
+                    </div>
+                </label>
+                <label class="format-option">
+                    <input type="radio" name="format" value="lt">
+                    <div class="format-card">
+                        <h4>ProRes 422 LT</h4>
+                        <span class="size-label medium">Medium</span>
+                        <p>Balanced quality and size</p>
+                    </div>
+                </label>
+                <label class="format-option">
+                    <input type="radio" name="format" value="422">
+                    <div class="format-card">
+                        <h4>ProRes 422</h4>
+                        <span class="size-label large">Large</span>
+                        <p>High quality for production</p>
+                    </div>
+                </label>
+                <label class="format-option">
+                    <input type="radio" name="format" value="hq">
+                    <div class="format-card">
+                        <h4>ProRes 422 HQ</h4>
+                        <span class="size-label large">Large</span>
+                        <p>Highest quality</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div id="estimatedSize" class="estimated-size">
+                <p>Estimated output size: <strong id="sizeEstimate">Calculating...</strong></p>
+            </div>
+
+            <div class="destination-selector">
+                <h3>Export Destination:</h3>
+                <div class="destination-input-group">
+                    <input type="text" id="destinationPath" class="destination-input" readonly>
+                    <button id="browseDestBtn" class="btn btn-browse">📁 Browse</button>
+                </div>
+                <p class="destination-hint">Files will be saved to this folder</p>
+            </div>
+
+            <button id="convertBtn" class="btn btn-primary">Start Conversion</button>
+        </div>
+
+        <div id="progressSection" class="progress-section" style="display: none;">
+            <h3 id="currentFile">Converting: <span></span></h3>
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="progressText" class="progress-text">0%</p>
+            
+            <div class="control-buttons">
+                <button id="pauseBtn" class="btn btn-secondary">⏸ Pause</button>
+                <button id="cancelBtn" class="btn btn-danger">✕ Cancel</button>
+            </div>
+        </div>
+
+        <div id="completeSection" class="complete-section" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h3>Conversion Complete!</h3>
+            <p id="completedFiles"></p>
+            <button id="newConversionBtn" class="btn btn-primary">Convert More Files</button>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
