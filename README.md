@@ -1,6 +1,6 @@
 # 🎬 ProRes Converter
 
-A simple, elegant desktop application for converting MP4 videos to ProRes formats using FFmpeg.
+A lightweight Electron app for converting MP4 files into Apple ProRes formats with FFmpeg. Drag & drop videos, select your ProRes profile, and convert with ease
 
 ## Features
 
